@@ -137,11 +137,6 @@ func ConvertError(err error) *GError {
 		return nil
 	}
 
-	gErr, ok := err.(*GError)
-	if ok {
-		return gErr
-	}
-
 	return &GError{
 		Message:  err.Error(),
 		Status:   StatusInternalServerError,
