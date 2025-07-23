@@ -88,8 +88,23 @@ func NewGError(message string, status int, errors *[]string, previous *GError) *
 	}
 }
 
-func (e *GError) Error() string {
+func (e *GError) GetMessage() string {
 	return e.Message
+}
+
+func (e *GError) GetErrors() []string {
+	if e.Errors != nil {
+		return *e.Errors
+	}
+	return make([]string, 0)
+}
+
+func (e *GError) GetPreviousError() *GError {
+	return e.Previous
+}
+
+func (e *GError) GetStatusCode() int {
+	return e.Status
 }
 
 func (e *GError) ToJson() string {
