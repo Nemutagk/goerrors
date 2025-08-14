@@ -13,6 +13,13 @@
 		"--network",
 		"docker_gwbridge_v2"
 	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"donjayamanne.githistory"
+			]
+		}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

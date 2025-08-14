@@ -79,21 +79,7 @@ const (
 	StatusNetworkAuthenticationRequired = 511 // RFC 6585, 6
 )
 
-func NewGError(message string, status int, opts ...any) *GError {
-	var errors *[]string
-	var previous *GError
-
-	for _, opt := range opts {
-		switch v := opt.(type) {
-		case []string:
-			errors = &v
-		case *GError:
-			previous = v
-		default:
-			// Ignore other types
-		}
-	}
-
+func NewGError(message string, status int, errors *[]string, previous *GError) *GError {
 	return &GError{
 		Message:  message,
 		Status:   status,
